@@ -1,0 +1,18 @@
+composer create-project --prefer-dist laravel/laravel:^9.1 laravel-jwt
+install jwt di laravel
+composer require php-open-source-saver/jwt-auth:1.4.2
+php artisan jwt:secret
+
+tambahkan config/auth.php
+'guards' => [
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
+    ],
+    'api' => [                  
+        'driver' => 'jwt',  
+        'provider' => 'users',
+    ],
+],
+
+https://santrikoding.com/tutorial-laravel-jwt-6-membuat-restful-api-logout
