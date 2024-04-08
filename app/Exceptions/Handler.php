@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -43,8 +45,13 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        // $this->reportable(function (Throwable $e) {
+        //     //
+        // });
+        $this->renderable(function (NotFoundHttpException $e) {
+            return response()->json([
+                'message' => 'Not Found'
+            ],404);
         });
     }
 }

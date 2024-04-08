@@ -16,3 +16,38 @@ tambahkan config/auth.php
 ],
 
 https://santrikoding.com/tutorial-laravel-jwt-6-membuat-restful-api-logout
+
+
+EXPORT EXCEL
+composer require maatwebsite/excel
+
+
+Sebelum ada JWT
+- login pada microservice itu
+- di simpan pada session service
+- login menghasilkan cookies
+- di simpan di database
+*redis
+*memchace
+*dan lain lain
+kekurangannya jika aplikasi sudah besar banyak service yang akan mengakses database
+
+JWT standar yg digunakan untuk pertukaran data secara aman
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzA4NTg5OTI4LCJleHAiOjE3MDg1OTM1MjgsIm5iZiI6MTcwODU4OTkyOCwianRpIjoiTkdkT1hndnhnc2xFdERKaCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.fxzp8gsrxBMohmgY3WJ784u5yewvc4mnmBsfbCBhFPo"
+token di pisahkan oleh sperator titik
+header.payload.signature
+*hsing itu satu arah
+
+JSON web token Flow
+Login dengan JWT lalu simpan ke session service
+lalu disimpan di cookies
+lalu setiap mengakses service
+ambil datanya dari cookies
+lalu verivikasi menggunakan secret key yang di tanam pada setiap servicenya
+
+kekurangan json web token
+- verivikasi harus menggunakan hasing yang harus di gunakan
+
+
+PHP session
+kalau login menggunakan sessio, Sessionya akan di simpan di Hardisk Server

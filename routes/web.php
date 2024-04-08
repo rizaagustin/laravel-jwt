@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
+Route::post('/customer/import',[CustomerController::class,'import'])->name('customer.import');
 Route::get('/', function () {
     return view('welcome');
 });

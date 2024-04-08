@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
+Route::resource('/product', App\Http\Controllers\Api\ProductController::class);
+// Route::post('product', App\Http\Controllers\Api\ProductController::class)->name('product');
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
